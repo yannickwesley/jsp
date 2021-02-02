@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<users>
+    <user>
+        <id>fgandon</id>
+        <login>fgandon</login>
+        <lastname>Gandon</lastname>
+        <firstname>Fabien</firstname>
+    </user>
+    <user>
+        <id>flimpens</id>
+        <login>flimpens</login>
+        <lastname>Limpens</lastname>
+        <firstname>Freddy</firstname>
+    </user>
+    <user>
+        <id>gereteo</id>
+        <login>gereteo</login>
+        <lastname>Erétéo</lastname>
+        <firstname>Guillaume</firstname>
+    </user>
+    <user>
+        <id>mbuffa</id>
+        <login>mbuffa</login>
+        <lastname>Buffa</lastname>
+        <firstname>Michel</firstname>
+    </user>
+    <user>
+        <id>ndelaforge</id>
+        <login>ndelaforge</login>
+        <lastname>Delaforge</lastname>
+        <firstname>Nicolas</firstname>
+    </user>
+    <user>
+        <id>scomos</id>
+        <login>scomos</login>
+        <lastname>Comos</lastname>
+        <firstname>Sébastien</firstname>
+    </user>
+</users>
