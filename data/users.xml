@@ -73,12 +73,6 @@
         <firstname>karimou</firstname>
     </user>
     <user>
-        <id>kad</id>
-        <login>kad</login>
-        <lastname>yan</lastname>
-        <firstname>koffi</firstname>
-    </user>
-    <user>
         <id>wes</id>
         <login>wes</login>
         <lastname>pierre</lastname>
@@ -149,18 +143,6 @@
         <login>kouams</login>
         <lastname>thierry</lastname>
         <firstname>Kouame</firstname>
-    </user>
-    <user>
-        <id>pl</id>
-        <login>pl</login>
-        <lastname>andre</lastname>
-        <firstname>andre</firstname>
-    </user>
-    <user>
-        <id>axkof</id>
-        <login>axkof</login>
-        <lastname>koffi</lastname>
-        <firstname>koffi</firstname>
     </user>
     <user>
         <id>le_mama</id>

@@ -31,8 +31,8 @@
             <li><a href="ServletUsers?action=listerLesUtilisateurs">Afficher/raffraichir la liste de tous les utilisateurs</a></li>
             <p>
         </ul>
-            <h2>Liste des fonctionnalités à implémenter dans la Servlet (note : après chaque action cette page sera
-                rappelée par la servlet avec la liste des utilisateurs raffraichie et un message de confirmation</h2>
+        <h2>Liste des fonctionnalités à implémenter dans la Servlet (note : après chaque action cette page sera
+            rappelée par la servlet avec la liste des utilisateurs raffraichie et un message de confirmation</h2>
         <ol>
             <li><a href="ServletUsers?action=creerUtilisateursDeTest">Créer 4 utilisateurs de test</a></li>
 
@@ -62,40 +62,47 @@
                 <input type="hidden" name="action" value="updateUtilisateur"/>
                 <input type="submit" value="Mettre à jour" name="submit"/>
             </form>
+            
+             <li>Supprimer un utilisateur </li>
+            <form action="ServletUsers" method="get">
+                login : <input type="text" name="login"/><br>
+                <input type="hidden" name="action" value="supprimerrParLogin"/>
+                <input type="submit" value="Supprimer" name="submit"/>
+            </form>
         </ol>
+   
+    <!-- Fin du menu -->
 
-        <!-- Fin du menu -->
+    <!-- Zone qui affiche les utilisateurs si le paramètre action vaut listerComptes -->
+    <c:if test="${param['action'] == 'listerLesUtilisateurs'}" >
+        <h2>Liste des utilisateurs</h2>
 
-        <!-- Zone qui affiche les utilisateurs si le paramètre action vaut listerComptes -->
-        <c:if test="${param['action'] == 'listerLesUtilisateurs'}" >
-            <h2>Liste des utilisateurs</h2>
+        <table border="10">
+            <!-- La ligne de titre du tableau des comptes -->
+            <tr>
+                <td><b>Login</b></td>
+                <td><b>Nom</b></td>
+                <td><b>Prénom</b></td>
+            </tr>
 
-            <table border="10">
-                <!-- La ligne de titre du tableau des comptes -->
+            <!-- Ici on affiche les lignes, une par utilisateur -->
+            <!-- cette variable montre comment on peut utiliser JSTL et EL pour calculer -->
+            <c:set var="total" value="0"/>
+
+            <c:forEach var="u" items="${requestScope['listeDesUsers']}">
                 <tr>
-                    <td><b>Login</b></td>
-                    <td><b>Nom</b></td>
-                    <td><b>Prénom</b></td>
+                    <td>${u.login}</td>
+                    <td>${u.firstName}</td>
+                    <td>${u.lastName}</td>
+                    <!-- On compte le nombre de users -->
+                    <c:set var="total" value="${total+1}"/>
                 </tr>
+            </c:forEach>
 
-                <!-- Ici on affiche les lignes, une par utilisateur -->
-                <!-- cette variable montre comment on peut utiliser JSTL et EL pour calculer -->
-                <c:set var="total" value="0"/>
+            <!-- Affichage du solde total dans la dernière ligne du tableau -->
+            <tr><td><b>TOTAL</b></td><td></td><td><b>${total}</b></td><td></td></tr>
+        </table>
 
-                <c:forEach var="u" items="${requestScope['listeDesUsers']}">
-                    <tr>
-                        <td>${u.login}</td>
-                        <td>${u.firstName}</td>
-                        <td>${u.lastName}</td>
-                        <!-- On compte le nombre de users -->
-                        <c:set var="total" value="${total+1}"/>
-                    </tr>
-                </c:forEach>
-
-                <!-- Affichage du solde total dans la dernière ligne du tableau -->
-                <tr><td><b>TOTAL</b></td><td></td><td><b>${total}</b></td><td></td></tr>
-            </table>
-
-        </c:if>
-    </body>
+    </c:if>
+</body>
 </html>
