@@ -37,7 +37,7 @@
             <li><a href="ServletUsers?action=creerUtilisateursDeTest">Créer 4 utilisateurs de test</a></li>
 
             <li>Créer un utilisateur</li>
-            <form action="ServletUsers" method="get">
+            <form action="ServletUsers" method="post">
                 Nom : <input type="text" name="nom"/><br>
                 Prénom : <input type="text" name="prenom"/><br>
                 Login : <input type="text" name="login"/><br>

@@ -150,4 +150,34 @@
         <lastname>thierry</lastname>
         <firstname>Kouame</firstname>
     </user>
+    <user>
+        <id>pl</id>
+        <login>pl</login>
+        <lastname>paul</lastname>
+        <firstname>andre</firstname>
+    </user>
+    <user>
+        <id>axkof</id>
+        <login>axkof</login>
+        <lastname>axel</lastname>
+        <firstname>koffi</firstname>
+    </user>
+    <user>
+        <id>le_mama</id>
+        <login>le_mama</login>
+        <lastname>mama</lastname>
+        <firstname>keita</firstname>
+    </user>
+    <user>
+        <id>pl</id>
+        <login>pl</login>
+        <lastname>paul</lastname>
+        <firstname>andre</firstname>
+    </user>
+    <user>
+        <id>pl</id>
+        <login>pl</login>
+        <lastname>paul</lastname>
+        <firstname>andre</firstname>
+    </user>
 </users>

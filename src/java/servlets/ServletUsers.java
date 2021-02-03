@@ -6,6 +6,7 @@ package servlets;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -84,6 +85,17 @@ public class ServletUsers extends HttpServlet {
                 forwardTo = "index.jsp?action=listerLesUtilisateurs";
                 message = "Utilisateur créé avec succès";
             }
+            else if(action.equals("chercherParLogin")){
+                
+                User utilisateurRecherche= rechercherParLogin(request);
+                ArrayList<User> liste = new ArrayList<User>();
+                liste.add(utilisateurRecherche);
+                request.setAttribute("listeDesUsers", liste);
+                forwardTo = "index.jsp?action=listerLesUtilisateurs";
+                message = "Utilisateur recherche";
+               
+                
+            }
         
             else {
                 forwardTo = "index.jsp?action=todo";
@@ -118,7 +130,10 @@ public class ServletUsers extends HttpServlet {
          Server.uh.createUser(login,prenom,nom);
     }
     
-
+    private User rechercherParLogin(HttpServletRequest request){
+        String login=request.getParameter("login");
+        return Server.uh.getUserFromLogin(login);
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
