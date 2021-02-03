@@ -5,7 +5,10 @@
 package servlets;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.Collection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -63,7 +66,16 @@ public class ServletUsers extends HttpServlet {
                 request.setAttribute("listeDesUsers", liste);
                 forwardTo = "index.jsp?action=listerLesUtilisateurs";
                 message = "Liste des utilisateurs";
-            } else {
+            }else if(action.equals("creerUtilisateursDeTest")){
+              
+                creerUtilisateurDeTest();
+                Collection<User> liste = Server.uh.getUsers();
+                request.setAttribute("listeDesUsers", liste);
+                forwardTo = "index.jsp?action=listerLesUtilisateurs";
+                message = "Les utilisateurs ont ete enregistrés avec succès";
+            }
+         
+            else {
                 forwardTo = "index.jsp?action=todo";
                 message = "La fonctionnalité pour le paramètre " + action + " est à implémenter !";
             }
@@ -74,6 +86,22 @@ public class ServletUsers extends HttpServlet {
         // Après un forward, plus rien ne peut être exécuté après !
 
     }
+    private void creerUtilisateurDeTest(){
+        
+        try {
+            User user1 = new User("karim","yannick","karimou");
+            Server.uh.addUser(user1);
+            User user2 = new User("kad","yann","koffi");
+            Server.uh.addUser(user2);
+            User user3 = new User("wes","andre","konan");
+            Server.uh.addUser(user3);
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(ServletUsers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
