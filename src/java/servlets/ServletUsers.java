@@ -67,14 +67,24 @@ public class ServletUsers extends HttpServlet {
                 forwardTo = "index.jsp?action=listerLesUtilisateurs";
                 message = "Liste des utilisateurs";
             }else if(action.equals("creerUtilisateursDeTest")){
-              
+                /*Server.uh.createUser("kykw","yann","karimou");
+                Server.uh.createUser("adm","andre","konan");
+                Server.uh.createUser("l'espoir","thomas","edison");
+                Server.uh.createUser("le best","paul","kone");*/
                 creerUtilisateurDeTest();
                 Collection<User> liste = Server.uh.getUsers();
                 request.setAttribute("listeDesUsers", liste);
                 forwardTo = "index.jsp?action=listerLesUtilisateurs";
                 message = "Les utilisateurs ont ete enregistrés avec succès";
             }
-         
+            else if(action.equals("creerUnUtilisateur")){
+                creerUtilisateur( request);
+                 Collection<User> liste = Server.uh.getUsers();
+                request.setAttribute("listeDesUsers", liste);
+                forwardTo = "index.jsp?action=listerLesUtilisateurs";
+                message = "Utilisateur créé avec succès";
+            }
+        
             else {
                 forwardTo = "index.jsp?action=todo";
                 message = "La fonctionnalité pour le paramètre " + action + " est à implémenter !";
@@ -99,6 +109,13 @@ public class ServletUsers extends HttpServlet {
             Logger.getLogger(ServletUsers.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+    }
+    
+    private void creerUtilisateur(HttpServletRequest request){
+         String nom= request.getParameter("nom");
+         String prenom= request.getParameter("prenom");
+         String login= request.getParameter("login");
+         Server.uh.createUser(login,prenom,nom);
     }
     
 
