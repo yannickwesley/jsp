@@ -21,3 +21,4 @@ IMPORtANT :: Commitez et push après chaque fonctionnalité
 ## Partie 3: Rendu
 Complétez le tableau TP02 du document partagé avec vos noms, prénoms et liens vers le repository du tp. 
 
+"Lors de la compilation du projet , de nouveaux dossiers ont �t� creee dans le folder. Ce sont les dossiers classes,META-INF, empty,ap-source-output" 
